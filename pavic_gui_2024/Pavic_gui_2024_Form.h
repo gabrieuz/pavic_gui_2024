@@ -123,7 +123,7 @@ namespace pavicgui2024 {
 			this->bt_open->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->bt_open->ForeColor = System::Drawing::Color::White;
-			this->bt_open->Location = System::Drawing::Point(12, 12);
+			this->bt_open->Location = System::Drawing::Point(12, 32);
 			this->bt_open->Name = L"bt_open";
 			this->bt_open->Size = System::Drawing::Size(155, 45);
 			this->bt_open->TabIndex = 0;
@@ -148,7 +148,7 @@ namespace pavicgui2024 {
 			this->bt_exit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->bt_exit->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->bt_exit->Location = System::Drawing::Point(12, 63);
+			this->bt_exit->Location = System::Drawing::Point(12, 83);
 			this->bt_exit->Name = L"bt_exit";
 			this->bt_exit->Size = System::Drawing::Size(155, 45);
 			this->bt_exit->TabIndex = 2;
@@ -158,17 +158,18 @@ namespace pavicgui2024 {
 			// 
 			// pbox_input
 			// 
-			this->pbox_input->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pbox_input->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pbox_input->Location = System::Drawing::Point(29, 277);
 			this->pbox_input->Name = L"pbox_input";
 			this->pbox_input->Size = System::Drawing::Size(498, 407);
 			this->pbox_input->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbox_input->TabIndex = 3;
 			this->pbox_input->TabStop = false;
+			this->pbox_input->Click += gcnew System::EventHandler(this, &Pavic_gui_2024_Form::pbox_input_Click);
 			// 
 			// pbox_copy
 			// 
-			this->pbox_copy->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pbox_copy->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pbox_copy->Location = System::Drawing::Point(555, 277);
 			this->pbox_copy->Name = L"pbox_copy";
 			this->pbox_copy->Size = System::Drawing::Size(498, 407);
@@ -178,7 +179,7 @@ namespace pavicgui2024 {
 			// 
 			// pbox_output
 			// 
-			this->pbox_output->BorderStyle = System::Windows::Forms::BorderStyle::Fixed3D;
+			this->pbox_output->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->pbox_output->Location = System::Drawing::Point(1087, 277);
 			this->pbox_output->Name = L"pbox_output";
 			this->pbox_output->Size = System::Drawing::Size(498, 407);
@@ -209,7 +210,7 @@ namespace pavicgui2024 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(9, 709);
+			this->label2->Location = System::Drawing::Point(26, 709);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(111, 16);
 			this->label2->TabIndex = 9;
@@ -307,7 +308,7 @@ namespace pavicgui2024 {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Controls->Add(this->filter_blur);
 			this->groupBox1->Controls->Add(this->trackbar_intensity);
-			this->groupBox1->Location = System::Drawing::Point(617, 12);
+			this->groupBox1->Location = System::Drawing::Point(617, 32);
 			this->groupBox1->Name = L"groupBox1";
 			this->groupBox1->Size = System::Drawing::Size(451, 167);
 			this->groupBox1->TabIndex = 18;
@@ -319,7 +320,7 @@ namespace pavicgui2024 {
 			// 
 			this->groupBox2->Controls->Add(this->bt_copy);
 			this->groupBox2->Controls->Add(this->bt_filter_invert);
-			this->groupBox2->Location = System::Drawing::Point(184, 12);
+			this->groupBox2->Location = System::Drawing::Point(184, 32);
 			this->groupBox2->Name = L"groupBox2";
 			this->groupBox2->Size = System::Drawing::Size(417, 83);
 			this->groupBox2->TabIndex = 19;
@@ -328,9 +329,11 @@ namespace pavicgui2024 {
 			// 
 			// Pavic_gui_2024_Form
 			// 
+			this->AcceptButton = this->bt_open;
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(1785, 797);
+			this->CancelButton = this->bt_close;
+			this->ClientSize = System::Drawing::Size(1614, 738);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->bt_close_output);
@@ -346,6 +349,9 @@ namespace pavicgui2024 {
 			this->Controls->Add(this->bt_open);
 			this->Controls->Add(this->progressBar);
 			this->Name = L"Pavic_gui_2024_Form";
+			this->ShowIcon = false;
+			this->ShowInTaskbar = false;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"PROJECT: PAVIC LAB 2024";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_input))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_copy))->EndInit();
@@ -621,6 +627,8 @@ private: System::Void filter_blur_Click(System::Object^ sender, System::EventArg
 private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void pbox_input_Click(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 
