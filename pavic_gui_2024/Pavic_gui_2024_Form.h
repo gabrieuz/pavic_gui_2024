@@ -47,13 +47,13 @@ namespace pavicgui2024 {
 	private: System::Windows::Forms::Button^ bt_close;
 	private: System::Windows::Forms::Button^ bt_exit;
 	private: System::Windows::Forms::PictureBox^ pbox_input;
-	private: System::Windows::Forms::PictureBox^ pbox_copy;
+
 	private: System::Windows::Forms::PictureBox^ pbox_output;
-	private: System::Windows::Forms::Button^ bt_copy;
+
 	private: System::Windows::Forms::Button^ bt_filter_bw;
 
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::Button^ bt_close_copy;
+
 	private: System::Windows::Forms::Button^ bt_close_output;
 
 	private: System::Windows::Forms::Label^ label11;
@@ -90,14 +90,11 @@ namespace pavicgui2024 {
 			this->bt_close = (gcnew System::Windows::Forms::Button());
 			this->bt_exit = (gcnew System::Windows::Forms::Button());
 			this->pbox_input = (gcnew System::Windows::Forms::PictureBox());
-			this->pbox_copy = (gcnew System::Windows::Forms::PictureBox());
 			this->pbox_output = (gcnew System::Windows::Forms::PictureBox());
-			this->bt_copy = (gcnew System::Windows::Forms::Button());
 			this->bt_filter_bw = (gcnew System::Windows::Forms::Button());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->label12 = (gcnew System::Windows::Forms::Label());
-			this->bt_close_copy = (gcnew System::Windows::Forms::Button());
 			this->bt_close_output = (gcnew System::Windows::Forms::Button());
 			this->bt_filter_invert = (gcnew System::Windows::Forms::Button());
 			this->filter_blur = (gcnew System::Windows::Forms::Button());
@@ -109,7 +106,6 @@ namespace pavicgui2024 {
 			this->groupBox1 = (gcnew System::Windows::Forms::GroupBox());
 			this->groupBox2 = (gcnew System::Windows::Forms::GroupBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_input))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_copy))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_output))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackbar_intensity))->BeginInit();
 			this->groupBox1->SuspendLayout();
@@ -118,14 +114,15 @@ namespace pavicgui2024 {
 			// 
 			// bt_open
 			// 
-			this->bt_open->BackColor = System::Drawing::SystemColors::ControlDarkDark;
+			this->bt_open->BackColor = System::Drawing::SystemColors::ActiveCaption;
+			this->bt_open->DialogResult = System::Windows::Forms::DialogResult::Cancel;
 			this->bt_open->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->bt_open->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->bt_open->ForeColor = System::Drawing::Color::White;
-			this->bt_open->Location = System::Drawing::Point(12, 32);
+			this->bt_open->Location = System::Drawing::Point(57, 378);
 			this->bt_open->Name = L"bt_open";
-			this->bt_open->Size = System::Drawing::Size(155, 45);
+			this->bt_open->Size = System::Drawing::Size(216, 56);
 			this->bt_open->TabIndex = 0;
 			this->bt_open->Text = L"Abrir Imagem";
 			this->bt_open->UseVisualStyleBackColor = false;
@@ -133,7 +130,8 @@ namespace pavicgui2024 {
 			// 
 			// bt_close
 			// 
-			this->bt_close->Location = System::Drawing::Point(388, 236);
+			this->bt_close->DialogResult = System::Windows::Forms::DialogResult::Cancel;
+			this->bt_close->Location = System::Drawing::Point(345, 226);
 			this->bt_close->Name = L"bt_close";
 			this->bt_close->Size = System::Drawing::Size(127, 35);
 			this->bt_close->TabIndex = 1;
@@ -148,9 +146,9 @@ namespace pavicgui2024 {
 			this->bt_exit->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 7.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->bt_exit->ForeColor = System::Drawing::SystemColors::ButtonFace;
-			this->bt_exit->Location = System::Drawing::Point(12, 83);
+			this->bt_exit->Location = System::Drawing::Point(57, 469);
 			this->bt_exit->Name = L"bt_exit";
-			this->bt_exit->Size = System::Drawing::Size(155, 45);
+			this->bt_exit->Size = System::Drawing::Size(216, 56);
 			this->bt_exit->TabIndex = 2;
 			this->bt_exit->Text = L"Sair";
 			this->bt_exit->UseVisualStyleBackColor = false;
@@ -159,7 +157,7 @@ namespace pavicgui2024 {
 			// pbox_input
 			// 
 			this->pbox_input->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pbox_input->Location = System::Drawing::Point(29, 277);
+			this->pbox_input->Location = System::Drawing::Point(345, 277);
 			this->pbox_input->Name = L"pbox_input";
 			this->pbox_input->Size = System::Drawing::Size(498, 407);
 			this->pbox_input->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
@@ -167,35 +165,15 @@ namespace pavicgui2024 {
 			this->pbox_input->TabStop = false;
 			this->pbox_input->Click += gcnew System::EventHandler(this, &Pavic_gui_2024_Form::pbox_input_Click);
 			// 
-			// pbox_copy
-			// 
-			this->pbox_copy->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pbox_copy->Location = System::Drawing::Point(555, 277);
-			this->pbox_copy->Name = L"pbox_copy";
-			this->pbox_copy->Size = System::Drawing::Size(498, 407);
-			this->pbox_copy->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
-			this->pbox_copy->TabIndex = 4;
-			this->pbox_copy->TabStop = false;
-			// 
 			// pbox_output
 			// 
 			this->pbox_output->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pbox_output->Location = System::Drawing::Point(1087, 277);
+			this->pbox_output->Location = System::Drawing::Point(870, 277);
 			this->pbox_output->Name = L"pbox_output";
 			this->pbox_output->Size = System::Drawing::Size(498, 407);
 			this->pbox_output->SizeMode = System::Windows::Forms::PictureBoxSizeMode::StretchImage;
 			this->pbox_output->TabIndex = 5;
 			this->pbox_output->TabStop = false;
-			// 
-			// bt_copy
-			// 
-			this->bt_copy->Location = System::Drawing::Point(16, 21);
-			this->bt_copy->Name = L"bt_copy";
-			this->bt_copy->Size = System::Drawing::Size(189, 45);
-			this->bt_copy->TabIndex = 6;
-			this->bt_copy->Text = L"Copiar";
-			this->bt_copy->UseVisualStyleBackColor = true;
-			this->bt_copy->Click += gcnew System::EventHandler(this, &Pavic_gui_2024_Form::bt_copy_Click);
 			// 
 			// bt_filter_bw
 			// 
@@ -232,19 +210,9 @@ namespace pavicgui2024 {
 			this->label12->Size = System::Drawing::Size(0, 16);
 			this->label12->TabIndex = 13;
 			// 
-			// bt_close_copy
-			// 
-			this->bt_close_copy->Location = System::Drawing::Point(926, 236);
-			this->bt_close_copy->Name = L"bt_close_copy";
-			this->bt_close_copy->Size = System::Drawing::Size(127, 35);
-			this->bt_close_copy->TabIndex = 10;
-			this->bt_close_copy->Text = L"Limpar";
-			this->bt_close_copy->UseVisualStyleBackColor = true;
-			this->bt_close_copy->Click += gcnew System::EventHandler(this, &Pavic_gui_2024_Form::bt_close_copy_Click);
-			// 
 			// bt_close_output
 			// 
-			this->bt_close_output->Location = System::Drawing::Point(1458, 236);
+			this->bt_close_output->Location = System::Drawing::Point(870, 236);
 			this->bt_close_output->Name = L"bt_close_output";
 			this->bt_close_output->Size = System::Drawing::Size(127, 35);
 			this->bt_close_output->TabIndex = 11;
@@ -254,7 +222,7 @@ namespace pavicgui2024 {
 			// 
 			// bt_filter_invert
 			// 
-			this->bt_filter_invert->Location = System::Drawing::Point(211, 21);
+			this->bt_filter_invert->Location = System::Drawing::Point(13, 24);
 			this->bt_filter_invert->Name = L"bt_filter_invert";
 			this->bt_filter_invert->Size = System::Drawing::Size(189, 45);
 			this->bt_filter_invert->TabIndex = 14;
@@ -284,11 +252,15 @@ namespace pavicgui2024 {
 			// 
 			// progressBar
 			// 
-			this->progressBar->Location = System::Drawing::Point(1087, 690);
+			this->progressBar->Location = System::Drawing::Point(870, 689);
 			this->progressBar->Name = L"progressBar";
 			this->progressBar->Size = System::Drawing::Size(498, 17);
 			this->progressBar->Step = 1;
 			this->progressBar->TabIndex = 16;
+			// 
+			// timer2
+			// 
+			this->timer2->Tick += gcnew System::EventHandler(this, &Pavic_gui_2024_Form::timer2_Tick);
 			// 
 			// label1
 			// 
@@ -308,9 +280,9 @@ namespace pavicgui2024 {
 			this->groupBox1->Controls->Add(this->label1);
 			this->groupBox1->Controls->Add(this->filter_blur);
 			this->groupBox1->Controls->Add(this->trackbar_intensity);
-			this->groupBox1->Location = System::Drawing::Point(617, 32);
+			this->groupBox1->Location = System::Drawing::Point(742, 34);
 			this->groupBox1->Name = L"groupBox1";
-			this->groupBox1->Size = System::Drawing::Size(451, 167);
+			this->groupBox1->Size = System::Drawing::Size(472, 167);
 			this->groupBox1->TabIndex = 18;
 			this->groupBox1->TabStop = false;
 			this->groupBox1->Text = L"Filtros Ajustaveis";
@@ -318,11 +290,10 @@ namespace pavicgui2024 {
 			// 
 			// groupBox2
 			// 
-			this->groupBox2->Controls->Add(this->bt_copy);
 			this->groupBox2->Controls->Add(this->bt_filter_invert);
-			this->groupBox2->Location = System::Drawing::Point(184, 32);
+			this->groupBox2->Location = System::Drawing::Point(414, 74);
 			this->groupBox2->Name = L"groupBox2";
-			this->groupBox2->Size = System::Drawing::Size(417, 83);
+			this->groupBox2->Size = System::Drawing::Size(214, 83);
 			this->groupBox2->TabIndex = 19;
 			this->groupBox2->TabStop = false;
 			this->groupBox2->Text = L"Filtros Fixos";
@@ -333,16 +304,14 @@ namespace pavicgui2024 {
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->CancelButton = this->bt_close;
-			this->ClientSize = System::Drawing::Size(1614, 738);
+			this->ClientSize = System::Drawing::Size(1401, 775);
 			this->Controls->Add(this->groupBox2);
 			this->Controls->Add(this->groupBox1);
 			this->Controls->Add(this->bt_close_output);
-			this->Controls->Add(this->bt_close_copy);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label12);
 			this->Controls->Add(this->pbox_output);
-			this->Controls->Add(this->pbox_copy);
 			this->Controls->Add(this->pbox_input);
 			this->Controls->Add(this->bt_exit);
 			this->Controls->Add(this->bt_close);
@@ -354,7 +323,6 @@ namespace pavicgui2024 {
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"PROJECT: PAVIC LAB 2024";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_input))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_copy))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pbox_output))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->trackbar_intensity))->EndInit();
 			this->groupBox1->ResumeLayout(false);
@@ -378,87 +346,7 @@ private: System::Void bt_close_Click(System::Object^ sender, System::EventArgs^ 
 
 	
 }
-private: System::Void bt_copy_Click(System::Object^ sender, System::EventArgs^ e) {
-	//copyStopwatch = gcnew System::Diagnostics.Stopwatch();
-	//copyStopwatch->Start();
 
-	/*pbox_copy->Image = pbox_input->Image;*/
-
-	//copyStopwatch->Stop();
-	//label11->Text = "Tempo de cópia: " + duration_single_thread.count() + " ms";
-
-	// Obtém a imagem de entrada
-	Bitmap^ inputImage = (Bitmap^)pbox_input->Image;
-
-	int width = inputImage->Width;
-	int height = inputImage->Height;
-
-	// Inicia o timer
-	auto start_single_thread = std::chrono::high_resolution_clock::now();
-	// Cria um bitmap para a imagem de saída
-	Bitmap^ outputImage = gcnew Bitmap(width, height);
-
-	// Itera por cada pixel na imagem de entrada
-	for (int x = 0; x < width; x++) {
-		for (int y = 0; y < height; y++) {
-			// Obtém a cor do pixel atual
-			Color pixelColor = inputImage->GetPixel(x, y);
-
-			// Copia os valores RGB
-			int red = pixelColor.R;
-			int green = pixelColor.G;
-			int blue = pixelColor.B;
-
-			//// Aplica o filtro azul
-			//blue += 100;
-			//if (blue > 255) {
-			//	blue = 255;
-			//}
-
-			// Atribui o valor do pixel na imagem de saída
-			outputImage->SetPixel(x, y, Color::FromArgb(red, green, blue));
-		}
-	}
-	// Para o timer
-	auto stop_single_thread = std::chrono::high_resolution_clock::now();
-	// Registra o tempo do timer em milisegundos
-	auto duration_single_thread = std::chrono::duration_cast<std::chrono::milliseconds>(stop_single_thread - start_single_thread);
-	label11->Text = "Copy time: " + duration_single_thread.count() + " ms";
-
-	// Exibe a imagem de saída
-	pbox_copy->Image = outputImage;
-
-}
-//private: System::Void bt_filter_bw_Click(System::Object^ sender, System::EventArgs^ e) {
-//
-//	Bitmap^ inputImage = (Bitmap^)pbox_input->Image;
-//
-//	auto start_single_thread = std::chrono::high_resolution_clock::now();
-//
-//	Bitmap^ outputImage = gcnew Bitmap(inputImage->Width, inputImage->Height);
-//
-//	int intensity = this->trackbar_intensity->Value;
-//
-//	for (int i = 0; i < inputImage->Width; i++) {
-//		for (int j = 0; j < inputImage->Height; j++) {
-//			Color pixelColor = inputImage->GetPixel(i, j);
-//			int grayValue = (int)(0.299 * pixelColor.R + 0.587 * pixelColor.G + 0.114 * pixelColor.B);
-//
-//			int red = pixelColor.R + ((grayValue - pixelColor.R) * intensity) / 100;
-//			int green = pixelColor.G + ((grayValue - pixelColor.G) * intensity) / 100;
-//			int blue = pixelColor.B + ((grayValue - pixelColor.B) * intensity) / 100;
-//
-//			outputImage->SetPixel(i, j, Color::FromArgb(red, green, blue));
-//		}
-//	}
-//
-//	auto stop_single_thread = std::chrono::high_resolution_clock::now();
-//
-//	auto duration_single_thread = std::chrono::duration_cast<std::chrono::milliseconds>(stop_single_thread - start_single_thread);
-//	label11->Text = "Filter time: " + duration_single_thread.count() + " ms";
-//
-//	pbox_output->Image = outputImage;
-//}
 private: System::Void bt_filter_bw_Click(System::Object^ sender, System::EventArgs^ e) {
 	Bitmap^ inputImage = (Bitmap^)pbox_input->Image;
 	Bitmap^ outputImage = gcnew Bitmap(inputImage->Width, inputImage->Height);
@@ -498,10 +386,7 @@ private: System::Void bt_filter_bw_Click(System::Object^ sender, System::EventAr
 private: System::Void bt_exit_Click(System::Object^ sender, System::EventArgs^ e) {
 	Application::Exit();
 }
-private: System::Void bt_close_copy_Click(System::Object^ sender, System::EventArgs^ e) {
-	pbox_copy->Image = nullptr;
-	
-}
+
 private: System::Void bt_close_output_Click(System::Object^ sender, System::EventArgs^ e) {
 	pbox_output->Image = nullptr;
 }
@@ -527,37 +412,7 @@ private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e
 
 	pbox_output->Image = outputImage;
 }
-//OldBlur
-//private: System::Void filter_blur_Click(System::Object^ sender, System::EventArgs^ e) {
-//	Bitmap^ inputImage = (Bitmap^)pbox_input->Image;
-//	Bitmap^ outputImage = gcnew Bitmap(inputImage->Width, inputImage->Height);
-//
-//	auto start_time = std::chrono::high_resolution_clock::now();
-//
-//	for (int x = 1; x < inputImage->Width - 1; x++) {
-//		for (int y = 1; y < inputImage->Height - 1; y++) {
-//			int red = 0, green = 0, blue = 0;
-//			for (int i = -1; i <= 1; i++) {
-//				for (int j = -1; j <= 1; j++) {
-//					Color pixelColor = inputImage->GetPixel(x + i, y + j);
-//					red += pixelColor.R;
-//					green += pixelColor.G;
-//					blue += pixelColor.B;
-//				}
-//			}
-//			red /= 9;
-//			green /= 9;
-//			blue /= 9;
-//			outputImage->SetPixel(x, y, Color::FromArgb(red, green, blue));
-//		}
-//	}
-//
-//	auto end_time = std::chrono::high_resolution_clock::now();
-//	auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(end_time - start_time);
-//	label12->Text = "Blur filter time: " + duration.count() + " ms";
-//
-//	pbox_output->Image = outputImage;
-////}
+
 private: System::Void filter_blur_Click(System::Object^ sender, System::EventArgs^ e) {
 	Bitmap^ inputImage = (Bitmap^)pbox_input->Image;
 	Bitmap^ outputImage = gcnew Bitmap(inputImage->Width, inputImage->Height);
@@ -629,6 +484,8 @@ private: System::Void label1_Click(System::Object^ sender, System::EventArgs^ e)
 private: System::Void groupBox1_Enter(System::Object^ sender, System::EventArgs^ e) {
 }
 private: System::Void pbox_input_Click(System::Object^ sender, System::EventArgs^ e) {
+}
+private: System::Void timer2_Tick(System::Object^ sender, System::EventArgs^ e) {
 }
 };
 
